@@ -1,0 +1,40 @@
+# Android Studio files
+.idea/
+*.iml
+.gradle/
+local.properties
+
+# Build outputs
+/build/
+app/build/
+**/build/
+
+# NDK / CMake
+.externalNativeBuild/
+.cxx/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Kotlin
+*.kts~
+
+# IntelliJ
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Logs
+*.log
+
+# Jetpack Compose previews
+/previews/
+
+# Crashlytics (if used)
+fabric.properties
