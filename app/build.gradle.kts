@@ -1,13 +1,14 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.google.gms.google.services)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("com.google.gms.google-services")
 }
 
-android {
-    namespace = "com.example.resitrack"
-    compileSdk = 36
+  android {
+      namespace = "com.example.resitrack"
+      compileSdk = 36
+
 
     defaultConfig {
         applicationId = "com.example.resitrack"
@@ -32,10 +33,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget="11"
-    }
-    buildFeatures {
+      kotlin {
+          jvmToolchain(11)
+      }
+
+
+      buildFeatures {
         compose = true
     }
 }
@@ -63,15 +66,17 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    //Navigation
+
+    // Navigation
     implementation(libs.androidx.navigation.compose)
-    // Material3 for UI components
+
+    // Material3 + WindowSize class
     implementation(libs.androidx.material3.window.size.class1)
 
-    // Icons Extended (for any potential icons, though not strictly in your design)
+    // Icons Extended
     implementation(libs.androidx.material.icons.extended)
 
-    // ViewModel Compose (if you don't have it already)
+    // ViewModel Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     // For async operations in ViewModels
@@ -79,7 +84,11 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.play.services) // For Firebase await()
 
-
-// Accompanist for Permissions
+    // Accompanist for Permissions
     implementation(libs.accompanist.permissions)
+
+    // ---- Add these two to support classic Android Activities + widgets ----
+    implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation("com.google.android.material:material:1.13.0")
+
 }

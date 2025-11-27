@@ -28,3 +28,13 @@ build/
 
 # Google services (keep sensitive files out of repo)
 /app/google-services.json
+
+# Ignore backup files and local exported zips
+
+*.bak
+
+*.zip
+
+/resitrack_firebase_auth/
+
+AndroidManifest_additions.txt
